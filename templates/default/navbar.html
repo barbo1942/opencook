@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Opencook</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Hi, {{user.username}} <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/recipe/create">分享食譜</a>
+      </li>
+      <li class="nav-item">
+        <form action="/logout/post" method="POST" class="">
+            {% csrf_token %}
+        <button type="submit" class="btn btn-primary">登出</button>
+      </form>
+      </li>
+    </ul>
+
+    {% else %}
+    <form action="/login/post" method="POST" class="form-inline my-2 my-lg-0 ml-auto">
+        <input class="form-control mr-sm-2 mb-2 mb-sm-0 " type="text" placeholder="username" name="username" aria-label="Username">
+        <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password" aria-label="Password">
+        <!-- <div class="mt-2 mt-sm-0 "> -->
+          {% csrf_token %}
+          <button class="btn btn-success my-2 my-sm-0 mr-2" type="submit">登入</button>
+          <a href="/signup" class="btn btn-primary my-2 my-sm-0 ">註冊</a>
+        <!-- </div> -->
+      </form>
+    {% endif %}
+
+  </div>
+
+</nav>

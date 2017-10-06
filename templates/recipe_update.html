@@ -1,0 +1,36 @@
+{% extends 'default/base.html' %} {% block content %}
+<div class="container mt-container">
+
+
+  <div class="d-flex justify-content-center">
+    <div class="card w-75 mb-5">
+      <h4 class="card-header card-title m-2">更新菜品</h4>
+      <div class="card-body">
+
+        <form action="/recipe/update/post/{{recipe.pk}}" method="POST" class="m-3">
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25">菜品名稱</div>
+            <input id="recipe_update_post_title" type="text" class="form-control" name="title" value="{{recipe.title}}">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25">描述</div>
+            <!-- <textarea id="recipe_update_post_description" class="form-control" name="description" cols="30" rows="10" value="{{recipe.description}}" ></textarea> -->
+            <input type="text" class="form-control" style="height: 12rem" name="description" value="{{recipe.description}}">
+            
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-addon w-25">圖片位址</div>
+            <input id="recipe_update_post_image_path" type="text" class="form-control" name="image_path" value="{{recipe.image_path}}">
+
+          </div>
+          <br> {% csrf_token %}
+          <button class="btn btn-primary btn-block mt-3" type="submit">更新</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

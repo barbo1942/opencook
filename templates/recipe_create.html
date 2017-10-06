@@ -1,0 +1,32 @@
+{% extends 'default/base.html' %} {% block content %}
+<div class="container mt-container d-flex justify-content-center">
+  
+  <div class="card w-75 mb-5">
+      <h4 class="card-header card-title m-2">建立菜品</h4>
+      <div class="card-body">
+        <form action="/recipe/post" method="POST" class="m-3">
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25" >菜品名稱</div>
+            <input type="text" class="form-control" name="title" placeholder="酸辣湯" required>
+          </div>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25" >描述</div>
+            <textarea class="form-control"  name="description" id="" cols="30" rows="10" placeholder="香辣好喝" required></textarea>
+            <!-- <input type="text" class="form-control" name="description" placeholder="香辣好喝"> -->
+          </div>
+          
+          <div class="input-group">
+            <div class="input-group-addon w-25" >圖片位址</div>
+            <input type="text" class="form-control" name="image_path" placeholder="圖片" required>
+          </div>
+          <br> 
+          {% csrf_token %}
+          <button class="btn btn-primary btn-block mt-3" type="submit">送出</button>
+        </form>
+      </div>
+    
+  </div>
+  
+</div>
+{% endblock %}

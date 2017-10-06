@@ -1,0 +1,64 @@
+{% extends 'default/base.html' %} {% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron mt-5 mt-sm-0">
+  {% for message in messages %}
+    <div class="alrt alert-success p-3 rounded" role="alert">
+      <h1>
+          <strong>Well done!</strong>
+          <span ml-3> {{message}}</span>
+      </h1>
+
+    </div>
+  {% endfor %}
+
+
+  <div class="container mt-container mt-3">
+    <h1 class="display-3">分享料理的美好時刻</h1>
+    <p>在這裡你可以分享你的私房食譜改喜愛料理的朋友們</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" v-for="r in recipes">
+      <div class="card mb-5">
+        <a v-bind:href="/recipe/+[[r.pk]]" style="text-decoration: none">
+          <img class="card-img-top img-thumbnail" style="height: 17rem" v-bind:src="r.fields.image_path" alt="Card image cap">
+          <div class="card-body pb-0">
+            <h4 class="card-title text-dark">[[r.fields.title]]</h4>
+            <p class="card-text text-secondary">[[r.fields.description]]</p>
+            <p class="text-secondary text-right"><small>[[r.fields.author]]</small></p>      
+            
+            <p class="text-secondary text-right"><small>[[r.fields.created_at]]</small></p>      
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+  
+    <!-- django模板 -->
+    <!-- <div class="row">
+    {% for recipe in recipes %}
+    <div class="col-md-4">
+
+      <div class="card mb-5">
+        <a href="#" style="text-decoration: none">
+        <img class="card-img-top img-thumbnail" src="{{recipe.image_path}}" alt="Card image cap">
+        
+          <div class="card-body pb-0">
+            <h4 class="card-title text-dark">{{recipe.title}}</h4>
+            <p class="card-text text-secondary">{{recipe.description}}</p>
+            <p class="text-secondary text-right"><small>{{recipe.created_at|date:"Y / m / d"}}</small></p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+    {% endfor %} -->
+  </div>
+
+</div>
+{% endblock %}

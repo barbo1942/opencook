@@ -1,0 +1,31 @@
+{% extends 'default/base.html' %} {% block content %}
+<div class="container mt-container d-flex justify-content-center">
+  
+  <div class="card w-75 mb-5">
+      <h4 class="card-header card-title m-2">註冊帳號</h4>
+      <div class="card-body">
+        <form action="/signup/post" method="POST" class="m-3">
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25">使用者名稱</div>
+            <input type="text" class="form-control" name="username" placeholder="username">
+          </div>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-addon w-25">email</div>
+            <input type="email" class="form-control" name="email" placeholder="email">
+          </div>
+          
+          <div class="input-group">
+            <div class="input-group-addon w-25">密碼</div>
+            <input type="password" class="form-control" name="password" placeholder="password">
+          </div>
+          <br> 
+          {% csrf_token %}
+          <button class="btn btn-primary btn-block mt-3" type="submit">送出</button>
+        </form>
+      </div>
+    
+  </div>
+  
+</div>
+{% endblock %}
