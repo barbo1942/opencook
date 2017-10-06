@@ -1,0 +1,13 @@
+.mt-container {
+  /* height: 100vh; */
+  margin-top: 5rem;
+}
+
+input#recipe_update_post_title::placeholder {
+  color: black !important;
+}
+
+/* input::placeholder {
+  color: red !important;
+
+} */
