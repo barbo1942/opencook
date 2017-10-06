@@ -11,3 +11,12 @@ input#recipe_update_post_title::placeholder {
   color: red !important;
 
 } */
+
+.bg-cover {
+  background-size: cover; 
+  background-position: center center;
+}
+
+.card-image {
+  height: 17rem;
+}

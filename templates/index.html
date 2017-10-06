@@ -24,6 +24,10 @@
     <div class="col-md-4" v-for="r in recipes">
       <div class="card mb-5">
         <a v-bind:href="/recipe/+[[r.pk]]" style="text-decoration: none">
+          <!-- <div class="card-img bg-cover" v-bind:style="background-image: url([[r.fields.image_path]])">
+              dsd
+          </div> -->
+          
           <img class="card-img-top img-thumbnail" style="height: 17rem" v-bind:src="r.fields.image_path" alt="Card image cap">
           <div class="card-body pb-0">
             <h4 class="card-title text-dark">[[r.fields.title]]</h4>

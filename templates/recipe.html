@@ -1,45 +1,47 @@
 {% extends 'default/base.html' %} {% block content %}
 <div class="container mt-container">
 
-    {% for message in messages %}
-    <div class="alrt alert-success px-3 pt-3 pb-2 rounded" role="alert">
-      <h1 class="pb-0">
-        <strong>Well done!</strong>
-        <span ml-3> {{message}}</span>
-      </h1>
-  
-    </div>
-    {% endfor %}
+  {% for message in messages %}
+  <div class="alrt alert-success px-3 pt-3 pb-2 rounded" role="alert">
+    <h1 class="pb-0">
+      <strong>Well done!</strong>
+      <span ml-3> {{message}}</span>
+    </h1>
+
+  </div>
+  {% endfor %}
 
   <nav class="breadcrumb bg-transparent">
     <a href="/" class="breadcrumb-item">Home</a>
     <span class="breadcrumb-item active">{{recipe.title}}</span>
   </nav>
 
-  <row class="d-flex justify-content-center">
-    <div class="col-xl-8">
-      <div class="card mb-5">
-        <div class="card-header px-3 pt-3 d-flex ">
-          <h3 class="card-title mb-0 mr-auto">{{recipe.title}}</h3>
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <div class="col-xl-8">
+        <div class="card mb-5">
+          <div class="card-header px-3 pt-3 d-flex ">
+            <h3 class="card-title mb-0 mr-auto">{{recipe.title}}</h3>
 
-          {% if user.is_authenticated %}
-          <a href="/recipe/delete/{{recipe.pk}}" class="mr-3" data-toggle="modal" data-target="#deleteModal">
+            {% if user.is_authenticated %}
+            <a href="/recipe/delete/{{recipe.pk}}" class="mr-3" data-toggle="modal" data-target="#deleteModal">
             <i class="fa fa-trash-o text-secondary fa-2x" aria-hidden="true"></i>
-          </a>  
-          <a href="/recipe/update/{{recipe.pk}}"><i class="fa fa-pencil text-secondary fa-2x" aria-hidden="true"></i></a>
-          {% endif %}
-        
-        </div>
+          </a>
+            <a href="/recipe/update/{{recipe.pk}}"><i class="fa fa-pencil text-secondary fa-2x" aria-hidden="true"></i></a>            {% endif %}
 
-        <div class="card-body ">
-          <img class="card-img-top mb-3" src="{{recipe.image_path}}" alt="Card image cap">
-          <h5>{{recipe.description}}</h5>
-          <p class="text-secondary text-right"><small>{{recipe.created_at}}</small></p>
+          </div>
+
+          <div class="card-body ">
+           
+            <img class="card-img-top mb-3" src="{{recipe.image_path}}" alt="Card image cap">
+            
+            <h5>{{recipe.description}}</h5>
+            <p class="text-secondary text-right"><small>{{recipe.created_at}}</small></p>
+          </div>
         </div>
       </div>
     </div>
-  </row>
-
+  </div>
 
 
 
